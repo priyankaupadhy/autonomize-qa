@@ -1,0 +1,14 @@
+# Python cache files — auto generated, not needed in GitHub
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+
+# Reports — generated locally
+reports/
+
+# PyCharm settings
+.idea/
