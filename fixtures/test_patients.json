@@ -1,0 +1,23 @@
+{
+  "valid_patient": {
+    "patient_id": "PT-10001",
+    "name": "John Doe",
+    "dob": "1955-06-15",
+    "age": 68,
+    "weight_kg": 82.5,
+    "diagnosis_codes": ["E11.9", "I10"]
+  },
+  "patient_missing_dob": {
+    "patient_id": "PT-10002",
+    "name": "Jane Doe",
+    "age": 45,
+    "weight_kg": 70.0,
+    "diagnosis_codes": ["J45.9"]
+  },
+  "high_risk_patient": {
+    "patient_id": "PT-20002",
+    "age": 72,
+    "systolic_bp": 178,
+    "cholesterol": 295
+  }
+}

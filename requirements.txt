@@ -1,0 +1,8 @@
+# Testing framework — runs all our tests
+pytest
+
+# HTTP client — lets Python make API calls
+requests
+
+# Generates HTML report after tests run
+pytest-html
