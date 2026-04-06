@@ -27,7 +27,7 @@ def classify_risk(patient: dict) -> dict:
 
 
 # TC-ML-01 — High Risk Patient
-class TestTC_ML_01_HighRiskClassification:
+class TestTcMl01HighRiskClassification:
 
     def test_high_risk_score(self, high_risk_patient):
         """High BP + high cholesterol + age 72 must score >= 0.75."""
@@ -52,7 +52,7 @@ class TestTC_ML_01_HighRiskClassification:
 
 
 # TC-ML-02 — Low Risk Patient
-class TestTC_ML_02_LowRiskClassification:
+class TestTcMl02LowRiskClassification:
 
     def test_low_risk_score(self):
         """Healthy patient must score below 0.40."""
@@ -72,7 +72,7 @@ class TestTC_ML_02_LowRiskClassification:
 
 
 # TC-ML-03 — Boundary Inputs
-class TestTC_ML_03_BoundaryInputs:
+class TestTcMl03BoundaryInputs:
 
     def test_score_always_between_0_and_1(self, high_risk_patient):
         """Risk score must always be 0.0 to 1.0 — never outside this range."""

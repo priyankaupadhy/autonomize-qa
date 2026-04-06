@@ -15,8 +15,6 @@ BASE_URL = "xyz"
 def api_session():
     """
     Creates one shared HTTP session for the entire test run.
-    scope='session' = created once, reused across all tests.
-    In real testing: every API call would use this session.
     """
     session = requests.Session()
     session.headers.update({
@@ -26,12 +24,6 @@ def api_session():
     })
     yield session
     session.close()
-
-
-# ─────────────────────────────────────────────
-# PATIENT DATA FIXTURES
-# Plain dictionaries — no complexity needed
-# ─────────────────────────────────────────────
 
 @pytest.fixture
 def valid_patient():

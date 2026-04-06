@@ -21,7 +21,7 @@ def get_retry_delay(attempt: int):
 
 
 # TC-AG-01 — Valid Patient Extraction
-class TestTC_AG_01_ValidExtraction:
+class TestTcAg01ValidExtraction:
 
     def test_age_is_integer(self, valid_patient):
         """age must be int — wrong type crashes the AI model."""
@@ -34,7 +34,7 @@ class TestTC_AG_01_ValidExtraction:
         logger.info("RUNNING: TC-AG-01 | Requirement: DOB must be ISO-8601 format")
         dob = valid_patient["dob"]
         try:
-            # Validates both the ISO format (YYYY-MM-DD) and calendar logic (e.g., no Feb 30th)
+            # Validates both the ISO format (YYYY-MM-DD) and calendar logic
             date.fromisoformat(dob)
         except ValueError:
             pytest.fail(f"FAIL — DOB '{dob}' is not a valid ISO date.")
@@ -46,10 +46,8 @@ class TestTC_AG_01_ValidExtraction:
         assert is_valid is True, f"FAIL — Missing fields: {missing}"
 
 
-
 # TC-AG-02 — Missing Mandatory Field (negative)
-
-class TestTC_AG_02_MissingMandatoryField:
+class TestTcAG02MissingMandatoryField:
 
     def test_missing_dob_fails_validation(self, patient_missing_dob):
         """Record without DOB must fail — never reach AI model."""
@@ -66,7 +64,7 @@ class TestTC_AG_02_MissingMandatoryField:
             f"FAIL — 'dob' not in missing fields. Got: {missing}"
 
 # TC-AG-03 — API Timeout / Resilience
-class TestTC_AG_03_APITimeout:
+class TestTcAg03APITimeout:
 
     def test_retries_exactly_3_times(self):
         """Agent must retry exactly 3 times when source is unavailable."""

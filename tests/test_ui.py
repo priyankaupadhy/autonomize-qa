@@ -3,19 +3,15 @@ test_ui_validation.py — Module 3: UI Validation Tests
 TC-UI-01 | TC-UI-02 | TC-UI-03
 
 What we are testing:
-  What happens when a user makes a mistake on the screen —
+when a user makes a mistake on the screen —
   uploads wrong file type, file too big, or session expires.
-
-"UI tests validate the rules behind what the user sees. Instead of clicking buttons,
-I test the validation logic directly — if the logic is correct,
-the UI will show the right message. Clean and fast."
 """
+
 import logging
 
 logger = logging.getLogger(__name__)
 
 # ── Helper Functions ──────────────────────────
-
 def validate_file_upload(file_name: str, page_count: int) -> tuple:
     """
     Simulates the upload validation logic.
@@ -46,10 +42,9 @@ def validate_session(session_token: str) -> tuple:
     return True, None
 
 # TC-UI-01 — Wrong File Format(Negative, UX)
-class TestTC_UI_01_WrongFileFormat:
+class TestTcUI01WrongFileFormat:
     """
-    Simple explanation:
-      Nurse uploads a .docx instead of a PDF.
+      .docx uploaded instead of a PDF.
       System must reject it with a clear message.
     """
 
@@ -74,12 +69,10 @@ class TestTC_UI_01_WrongFileFormat:
         assert is_valid is True, \
             f"FAIL — Valid PDF was rejected. Error: {error}"
 
-
 # TC-UI-02 — File Exceeds Page Limit
-class TestTC_UI_02_FileTooLarge:
+class TestTcUI02FileTooLarge:
     """
-    Simple explanation:
-      Nurse uploads a 75-page PDF (limit is 50).
+      75-page PDF is uploaded (limit is 50).
       Error must tell them both the limit AND their count.
     """
 
@@ -107,11 +100,10 @@ class TestTC_UI_02_FileTooLarge:
             "FAIL — 50-page PDF rejected. Limit is 50 pages inclusive."
 
 # TC-UI-03 — Session Timeout
-class TestTC_UI_03_SessionTimeout:
+class TestTcUI03SessionTimeout:
     """
-    Simple explanation:
-      Nurse fills half the form, session expires.
-      Must show a clear message — no silent data loss.
+      Half the form is filled and session expires.
+      Must show a clear message
     """
 
     def test_expired_session_rejected(self):
